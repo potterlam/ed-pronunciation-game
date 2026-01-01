@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "grammarTarget": "past-tense-ed",
+    "title": "Past Tense -ED Pronunciation",
+    "description": "Learn how to pronounce the -ed ending in English past tense verbs",
+    "categories": [
+      {
+        "id": "t",
+        "name": "/t/",
+        "ipa": "/t/",
+        "rule": "Use /t/ after voiceless sounds: p, k, f, s, sh, ch",
+        "color": "#FF6B6B"
+      },
+      {
+        "id": "d",
+        "name": "/d/",
+        "ipa": "/d/",
+        "rule": "Use /d/ after voiced sounds: b, g, v, z, l, m, n, r, and vowels",
+        "color": "#4ECDC4"
+      },
+      {
+        "id": "id",
+        "name": "/ɪd/",
+        "ipa": "/ɪd/",
+        "rule": "Use /ɪd/ after t or d sounds",
+        "color": "#FFE66D"
+      }
+    ]
+  },
+  "words": [
+    {
+      "id": 1,
+      "word": "walked",
+      "baseForm": "walk",
+      "ipa": "/wɔːkt/",
+      "category": "t",
+      "audioFile": "walked.mp3",
+      "exampleSentence": "I walked to school yesterday.",
+      "difficulty": 1
+    },
+    {
+      "id": 2,
+      "word": "talked",
+      "baseForm": "talk",
+      "ipa": "/tɔːkt/",
+      "category": "t",
+      "audioFile": "talked.mp3",
+      "exampleSentence": "She talked to her friend on the phone.",
+      "difficulty": 1
+    },
+    {
+      "id": 3,
+      "word": "helped",
+      "baseForm": "help",
+      "ipa": "/helpt/",
+      "category": "t",
+      "audioFile": "helped.mp3",
+      "exampleSentence": "He helped his mom with the dishes.",
+      "difficulty": 1
+    },
+    {
+      "id": 4,
+      "word": "watched",
+      "baseForm": "watch",
+      "ipa": "/wɒtʃt/",
+      "category": "t",
+      "audioFile": "watched.mp3",
+      "exampleSentence": "We watched a movie last night.",
+      "difficulty": 1
+    },
+    {
+      "id": 5,
+      "word": "cooked",
+      "baseForm": "cook",
+      "ipa": "/kʊkt/",
+      "category": "t",
+      "audioFile": "cooked.mp3",
+      "exampleSentence": "My dad cooked dinner for us.",
+      "difficulty": 1
+    },
+    {
+      "id": 6,
+      "word": "jumped",
+      "baseForm": "jump",
+      "ipa": "/dʒʌmpt/",
+      "category": "t",
+      "audioFile": "jumped.mp3",
+      "exampleSentence": "The cat jumped over the fence.",
+      "difficulty": 1
+    },
+    {
+      "id": 7,
+      "word": "asked",
+      "baseForm": "ask",
+      "ipa": "/æskt/",
+      "category": "t",
+      "audioFile": "asked.mp3",
+      "exampleSentence": "I asked a question in class.",
+      "difficulty": 1
+    },
+    {
+      "id": 8,
+      "word": "looked",
+      "baseForm": "look",
+      "ipa": "/lʊkt/",
+      "category": "t",
+      "audioFile": "looked.mp3",
+      "exampleSentence": "She looked at the picture.",
+      "difficulty": 1
+    },
+    {
+      "id": 9,
+      "word": "worked",
+      "baseForm": "work",
+      "ipa": "/wɜːkt/",
+      "category": "t",
+      "audioFile": "worked.mp3",
+      "exampleSentence": "They worked hard on the project.",
+      "difficulty": 1
+    },
+    {
+      "id": 10,
+      "word": "liked",
+      "baseForm": "like",
+      "ipa": "/laɪkt/",
+      "category": "t",
+      "audioFile": "liked.mp3",
+      "exampleSentence": "I liked the ice cream.",
+      "difficulty": 1
+    },
+    {
+      "id": 11,
+      "word": "washed",
+      "baseForm": "wash",
+      "ipa": "/wɒʃt/",
+      "category": "t",
+      "audioFile": "washed.mp3",
+      "exampleSentence": "She washed her hands before eating.",
+      "difficulty": 1
+    },
+    {
+      "id": 12,
+      "word": "finished",
+      "baseForm": "finish",
+      "ipa": "/ˈfɪnɪʃt/",
+      "category": "t",
+      "audioFile": "finished.mp3",
+      "exampleSentence": "We finished our homework.",
+      "difficulty": 1
+    },
+    {
+      "id": 13,
+      "word": "laughed",
+      "baseForm": "laugh",
+      "ipa": "/læft/",
+      "category": "t",
+      "audioFile": "laughed.mp3",
+      "exampleSentence": "They laughed at the joke.",
+      "difficulty": 2
+    },
+    {
+      "id": 14,
+      "word": "stopped",
+      "baseForm": "stop",
+      "ipa": "/stɒpt/",
+      "category": "t",
+      "audioFile": "stopped.mp3",
+      "exampleSentence": "The car stopped at the red light.",
+      "difficulty": 1
+    },
+    {
+      "id": 15,
+      "word": "dressed",
+      "baseForm": "dress",
+      "ipa": "/drest/",
+      "category": "t",
+      "audioFile": "dressed.mp3",
+      "exampleSentence": "I dressed quickly this morning.",
+      "difficulty": 1
+    },
+    {
+      "id": 16,
+      "word": "played",
+      "baseForm": "play",
+      "ipa": "/pleɪd/",
+      "category": "d",
+      "audioFile": "played.mp3",
+      "exampleSentence": "We played soccer after school.",
+      "difficulty": 1
+    },
+    {
+      "id": 17,
+      "word": "called",
+      "baseForm": "call",
+      "ipa": "/kɔːld/",
+      "category": "d",
+      "audioFile": "called.mp3",
+      "exampleSentence": "She called her grandmother.",
+      "difficulty": 1
+    },
+    {
+      "id": 18,
+      "word": "cleaned",
+      "baseForm": "clean",
+      "ipa": "/kliːnd/",
+      "category": "d",
+      "audioFile": "cleaned.mp3",
+      "exampleSentence": "He cleaned his room.",
+      "difficulty": 1
+    },
+    {
+      "id": 19,
+      "word": "lived",
+      "baseForm": "live",
+      "ipa": "/lɪvd/",
+      "category": "d",
+      "audioFile": "lived.mp3",
+      "exampleSentence": "They lived in Tokyo for five years.",
+      "difficulty": 1
+    },
+    {
+      "id": 20,
+      "word": "studied",
+      "baseForm": "study",
+      "ipa": "/ˈstʌdid/",
+      "category": "d",
+      "audioFile": "studied.mp3",
+      "exampleSentence": "I studied English every day.",
+      "difficulty": 1
+    },
+    {
+      "id": 21,
+      "word": "opened",
+      "baseForm": "open",
+      "ipa": "/ˈəʊpənd/",
+      "category": "d",
+      "audioFile": "opened.mp3",
+      "exampleSentence": "She opened the door.",
+      "difficulty": 1
+    },
+    {
+      "id": 22,
+      "word": "listened",
+      "baseForm": "listen",
+      "ipa": "/ˈlɪsənd/",
+      "category": "d",
+      "audioFile": "listened.mp3",
+      "exampleSentence": "We listened to music.",
+      "difficulty": 1
+    },
+    {
+      "id": 23,
+      "word": "rained",
+      "baseForm": "rain",
+      "ipa": "/reɪnd/",
+      "category": "d",
+      "audioFile": "rained.mp3",
+      "exampleSentence": "It rained all day yesterday.",
+      "difficulty": 1
+    },
+    {
+      "id": 24,
+      "word": "snowed",
+      "baseForm": "snow",
+      "ipa": "/snəʊd/",
+      "category": "d",
+      "audioFile": "snowed.mp3",
+      "exampleSentence": "It snowed last winter.",
+      "difficulty": 1
+    },
+    {
+      "id": 25,
+      "word": "showed",
+      "baseForm": "show",
+      "ipa": "/ʃəʊd/",
+      "category": "d",
+      "audioFile": "showed.mp3",
+      "exampleSentence": "He showed me his new toy.",
+      "difficulty": 1
+    },
+    {
+      "id": 26,
+      "word": "turned",
+      "baseForm": "turn",
+      "ipa": "/tɜːnd/",
+      "category": "d",
+      "audioFile": "turned.mp3",
+      "exampleSentence": "She turned left at the corner.",
+      "difficulty": 1
+    },
+    {
+      "id": 27,
+      "word": "learned",
+      "baseForm": "learn",
+      "ipa": "/lɜːnd/",
+      "category": "d",
+      "audioFile": "learned.mp3",
+      "exampleSentence": "I learned a new song.",
+      "difficulty": 1
+    },
+    {
+      "id": 28,
+      "word": "climbed",
+      "baseForm": "climb",
+      "ipa": "/klaɪmd/",
+      "category": "d",
+      "audioFile": "climbed.mp3",
+      "exampleSentence": "They climbed the mountain.",
+      "difficulty": 1
+    },
+    {
+      "id": 29,
+      "word": "seemed",
+      "baseForm": "seem",
+      "ipa": "/siːmd/",
+      "category": "d",
+      "audioFile": "seemed.mp3",
+      "exampleSentence": "It seemed like a good idea.",
+      "difficulty": 2
+    },
+    {
+      "id": 30,
+      "word": "smiled",
+      "baseForm": "smile",
+      "ipa": "/smaɪld/",
+      "category": "d",
+      "audioFile": "smiled.mp3",
+      "exampleSentence": "She smiled at me.",
+      "difficulty": 1
+    },
+    {
+      "id": 31,
+      "word": "arrived",
+      "baseForm": "arrive",
+      "ipa": "/əˈraɪvd/",
+      "category": "d",
+      "audioFile": "arrived.mp3",
+      "exampleSentence": "We arrived at the airport on time.",
+      "difficulty": 2
+    },
+    {
+      "id": 32,
+      "word": "happened",
+      "baseForm": "happen",
+      "ipa": "/ˈhæpənd/",
+      "category": "d",
+      "audioFile": "happened.mp3",
+      "exampleSentence": "What happened yesterday?",
+      "difficulty": 1
+    },
+    {
+      "id": 33,
+      "word": "enjoyed",
+      "baseForm": "enjoy",
+      "ipa": "/ɪnˈdʒɔɪd/",
+      "category": "d",
+      "audioFile": "enjoyed.mp3",
+      "exampleSentence": "They enjoyed the party.",
+      "difficulty": 1
+    },
+    {
+      "id": 34,
+      "word": "moved",
+      "baseForm": "move",
+      "ipa": "/muːvd/",
+      "category": "d",
+      "audioFile": "moved.mp3",
+      "exampleSentence": "My family moved to a new house.",
+      "difficulty": 1
+    },
+    {
+      "id": 35,
+      "word": "loved",
+      "baseForm": "love",
+      "ipa": "/lʌvd/",
+      "category": "d",
+      "audioFile": "loved.mp3",
+      "exampleSentence": "I loved that book.",
+      "difficulty": 1
+    },
+    {
+      "id": 36,
+      "word": "wanted",
+      "baseForm": "want",
+      "ipa": "/ˈwɒntɪd/",
+      "category": "id",
+      "audioFile": "wanted.mp3",
+      "exampleSentence": "I wanted a new bicycle.",
+      "difficulty": 1
+    },
+    {
+      "id": 37,
+      "word": "needed",
+      "baseForm": "need",
+      "ipa": "/ˈniːdɪd/",
+      "category": "id",
+      "audioFile": "needed.mp3",
+      "exampleSentence": "She needed help with homework.",
+      "difficulty": 1
+    },
+    {
+      "id": 38,
+      "word": "started",
+      "baseForm": "start",
+      "ipa": "/ˈstɑːtɪd/",
+      "category": "id",
+      "audioFile": "started.mp3",
+      "exampleSentence": "The class started at 9 o'clock.",
+      "difficulty": 1
+    },
+    {
+      "id": 39,
+      "word": "ended",
+      "baseForm": "end",
+      "ipa": "/ˈendɪd/",
+      "category": "id",
+      "audioFile": "ended.mp3",
+      "exampleSentence": "The movie ended at midnight.",
+      "difficulty": 1
+    },
+    {
+      "id": 40,
+      "word": "waited",
+      "baseForm": "wait",
+      "ipa": "/ˈweɪtɪd/",
+      "category": "id",
+      "audioFile": "waited.mp3",
+      "exampleSentence": "We waited for the bus.",
+      "difficulty": 1
+    },
+    {
+      "id": 41,
+      "word": "visited",
+      "baseForm": "visit",
+      "ipa": "/ˈvɪzɪtɪd/",
+      "category": "id",
+      "audioFile": "visited.mp3",
+      "exampleSentence": "They visited the museum.",
+      "difficulty": 1
+    },
+    {
+      "id": 42,
+      "word": "painted",
+      "baseForm": "paint",
+      "ipa": "/ˈpeɪntɪd/",
+      "category": "id",
+      "audioFile": "painted.mp3",
+      "exampleSentence": "She painted a beautiful picture.",
+      "difficulty": 1
+    },
+    {
+      "id": 43,
+      "word": "planted",
+      "baseForm": "plant",
+      "ipa": "/ˈplɑːntɪd/",
+      "category": "id",
+      "audioFile": "planted.mp3",
+      "exampleSentence": "He planted flowers in the garden.",
+      "difficulty": 1
+    },
+    {
+      "id": 44,
+      "word": "counted",
+      "baseForm": "count",
+      "ipa": "/ˈkaʊntɪd/",
+      "category": "id",
+      "audioFile": "counted.mp3",
+      "exampleSentence": "I counted all the coins.",
+      "difficulty": 1
+    },
+    {
+      "id": 45,
+      "word": "added",
+      "baseForm": "add",
+      "ipa": "/ˈædɪd/",
+      "category": "id",
+      "audioFile": "added.mp3",
+      "exampleSentence": "She added sugar to her tea.",
+      "difficulty": 1
+    },
+    {
+      "id": 46,
+      "word": "decided",
+      "baseForm": "decide",
+      "ipa": "/dɪˈsaɪdɪd/",
+      "category": "id",
+      "audioFile": "decided.mp3",
+      "exampleSentence": "We decided to go to the park.",
+      "difficulty": 2
+    },
+    {
+      "id": 47,
+      "word": "invited",
+      "baseForm": "invite",
+      "ipa": "/ɪnˈvaɪtɪd/",
+      "category": "id",
+      "audioFile": "invited.mp3",
+      "exampleSentence": "He invited me to his party.",
+      "difficulty": 2
+    },
+    {
+      "id": 48,
+      "word": "collected",
+      "baseForm": "collect",
+      "ipa": "/kəˈlektɪd/",
+      "category": "id",
+      "audioFile": "collected.mp3",
+      "exampleSentence": "They collected stamps.",
+      "difficulty": 2
+    },
+    {
+      "id": 49,
+      "word": "created",
+      "baseForm": "create",
+      "ipa": "/kriˈeɪtɪd/",
+      "category": "id",
+      "audioFile": "created.mp3",
+      "exampleSentence": "She created a wonderful drawing.",
+      "difficulty": 2
+    },
+    {
+      "id": 50,
+      "word": "shouted",
+      "baseForm": "shout",
+      "ipa": "/ˈʃaʊtɪd/",
+      "category": "id",
+      "audioFile": "shouted.mp3",
+      "exampleSentence": "He shouted for help.",
+      "difficulty": 1
+    },
+    {
+      "id": 51,
+      "word": "repeated",
+      "baseForm": "repeat",
+      "ipa": "/rɪˈpiːtɪd/",
+      "category": "id",
+      "audioFile": "repeated.mp3",
+      "exampleSentence": "The teacher repeated the question.",
+      "difficulty": 2
+    },
+    {
+      "id": 52,
+      "word": "pointed",
+      "baseForm": "point",
+      "ipa": "/ˈpɔɪntɪd/",
+      "category": "id",
+      "audioFile": "pointed.mp3",
+      "exampleSentence": "She pointed at the bird.",
+      "difficulty": 1
+    },
+    {
+      "id": 53,
+      "word": "printed",
+      "baseForm": "print",
+      "ipa": "/ˈprɪntɪd/",
+      "category": "id",
+      "audioFile": "printed.mp3",
+      "exampleSentence": "I printed my homework.",
+      "difficulty": 1
+    },
+    {
+      "id": 54,
+      "word": "graduated",
+      "baseForm": "graduate",
+      "ipa": "/ˈɡrædʒueɪtɪd/",
+      "category": "id",
+      "audioFile": "graduated.mp3",
+      "exampleSentence": "She graduated from university.",
+      "difficulty": 3
+    },
+    {
+      "id": 55,
+      "word": "hunted",
+      "baseForm": "hunt",
+      "ipa": "/ˈhʌntɪd/",
+      "category": "id",
+      "audioFile": "hunted.mp3",
+      "exampleSentence": "They hunted for Easter eggs.",
+      "difficulty": 2
+    }
+  ]
+}

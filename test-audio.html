@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Test - ED Pronunciation Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #6C5CE7;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .status {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .status.loading {
+            background: #E3F2FD;
+            color: #1E88E5;
+        }
+
+        .status.success {
+            background: #D5F4E6;
+            color: #00B894;
+        }
+
+        .status.error {
+            background: #FFE5E5;
+            color: #D63031;
+        }
+
+        .category-section {
+            margin-bottom: 2rem;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .category-t { background: #FF6B6B; }
+        .category-d { background: #4ECDC4; }
+        .category-id { background: #FFE66D; color: #333; }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .word-card {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .word-card.playing {
+            background: #E3F2FD;
+            border-color: #1E88E5;
+        }
+
+        .word-card.has-audio {
+            border-color: #00B894;
+        }
+
+        .word-card.no-audio {
+            border-color: #D63031;
+            background: #FFE5E5;
+        }
+
+        .word-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .word-ipa {
+            font-size: 0.9rem;
+            color: #636E72;
+            margin-bottom: 0.5rem;
+        }
+
+        .audio-status {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .audio-status.found {
+            background: #D5F4E6;
+            color: #00B894;
+        }
+
+        .audio-status.missing {
+            background: #FFE5E5;
+            color: #D63031;
+        }
+
+        .controls {
+            position: sticky;
+            top: 1rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            z-index: 10;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #6C5CE7;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5f4dd1;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-card {
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #636E72;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Audio Files Test</h1>
+        <p style="text-align: center; color: #636E72; margin-bottom: 2rem;">
+            Click on any word card to test its audio file
+        </p>
+
+        <div class="controls">
+            <div class="status loading" id="status">Loading dataset...</div>
+            
+            <div style="text-align: center;">
+                <button class="btn btn-primary" onclick="testAllAudio()">Test All Audio Files</button>
+                <button class="btn btn-primary" onclick="playCategory('t')">Play /t/ Category</button>
+                <button class="btn btn-primary" onclick="playCategory('d')">Play /d/ Category</button>
+                <button class="btn btn-primary" onclick="playCategory('id')">Play /ɪd/ Category</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card" style="background: #D5F4E6;">
+                    <div class="stat-value" id="found-count">0</div>
+                    <div class="stat-label">Files Found</div>
+                </div>
+                <div class="stat-card" style="background: #FFE5E5;">
+                    <div class="stat-value" id="missing-count">0</div>
+                    <div class="stat-label">Files Missing</div>
+                </div>
+                <div class="stat-card" style="background: #E3F2FD;">
+                    <div class="stat-value" id="total-count">0</div>
+                    <div class="stat-label">Total Words</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="words-container"></div>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script>
+        let wordsData = null;
+        const audioPlayer = document.getElementById('audio-player');
+        let currentlyPlaying = null;
+
+        // Load the dataset
+        async function loadData() {
+            try {
+                const response = await fetch('data/words-ed.json');
+                const data = await response.json();
+                wordsData = data.words;
+                
+                document.getElementById('status').textContent = `✅ Loaded ${wordsData.length} words`;
+                document.getElementById('status').className = 'status success';
+                document.getElementById('total-count').textContent = wordsData.length;
+                
+                renderWords();
+                checkAudioFiles();
+            } catch (error) {
+                document.getElementById('status').textContent = `❌ Error loading dataset: ${error.message}`;
+                document.getElementById('status').className = 'status error';
+            }
+        }
+
+        // Render word cards
+        function renderWords() {
+            const container = document.getElementById('words-container');
+            
+            // Group by category
+            const categories = {
+                t: { name: '/t/', color: 'category-t', words: [] },
+                d: { name: '/d/', color: 'category-d', words: [] },
+                id: { name: '/ɪd/', color: 'category-id', words: [] }
+            };
+
+            wordsData.forEach(word => {
+                categories[word.category].words.push(word);
+            });
+
+            // Render each category
+            for (const [key, cat] of Object.entries(categories)) {
+                const section = document.createElement('div');
+                section.className = 'category-section';
+
+                const header = document.createElement('div');
+                header.className = `category-header ${cat.color}`;
+                header.innerHTML = `
+                    <span>${cat.name} - ${cat.words.length} words</span>
+                    <span id="cat-${key}-status"></span>
+                `;
+                section.appendChild(header);
+
+                const grid = document.createElement('div');
+                grid.className = 'word-grid';
+
+                cat.words.forEach(word => {
+                    const card = document.createElement('div');
+                    card.className = 'word-card';
+                    card.dataset.audioFile = word.audioFile;
+                    card.onclick = () => playAudio(word.audioFile, card);
+
+                    card.innerHTML = `
+                        <div class="word-name">${word.word}</div>
+                        <div class="word-ipa">${word.ipa}</div>
+                        <div class="audio-status" data-file="${word.audioFile}">Checking...</div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            }
+        }
+
+        // Check if audio files exist
+        async function checkAudioFiles() {
+            let foundCount = 0;
+            let missingCount = 0;
+
+            for (const word of wordsData) {
+                const exists = await checkAudioExists(word.audioFile);
+                const statusEl = document.querySelector(`.audio-status[data-file="${word.audioFile}"]`);
+                const card = statusEl.closest('.word-card');
+
+                if (exists) {
+                    statusEl.textContent = '✓ Found';
+                    statusEl.className = 'audio-status found';
+                    card.classList.add('has-audio');
+                    foundCount++;
+                } else {
+                    statusEl.textContent = '✗ Missing';
+                    statusEl.className = 'audio-status missing';
+                    card.classList.add('no-audio');
+                    missingCount++;
+                }
+            }
+
+            document.getElementById('found-count').textContent = foundCount;
+            document.getElementById('missing-count').textContent = missingCount;
+
+            if (missingCount === 0) {
+                document.getElementById('status').textContent = '🎉 All audio files found!';
+                document.getElementById('status').className = 'status success';
+            } else {
+                document.getElementById('status').textContent = `⚠️ ${missingCount} audio files missing`;
+                document.getElementById('status').className = 'status error';
+            }
+        }
+
+        // Check if audio file exists
+        async function checkAudioExists(filename) {
+            try {
+                const response = await fetch(`assets/audio/${filename}`, { method: 'HEAD' });
+                return response.ok;
+            } catch {
+                return false;
+            }
+        }
+
+        // Play audio file
+        function playAudio(filename, cardElement) {
+            if (currentlyPlaying) {
+                currentlyPlaying.classList.remove('playing');
+            }
+
+            audioPlayer.src = `assets/audio/${filename}`;
+            audioPlayer.play()
+                .then(() => {
+                    cardElement.classList.add('playing');
+                    currentlyPlaying = cardElement;
+                })
+                .catch(error => {
+                    alert(`Error playing ${filename}: ${error.message}`);
+                });
+
+            audioPlayer.onended = () => {
+                cardElement.classList.remove('playing');
+                currentlyPlaying = null;
+            };
+        }
+
+        // Test all audio files in sequence
+        async function testAllAudio() {
+            if (!confirm('This will play all audio files in sequence. Continue?')) return;
+
+            const hasAudioWords = wordsData.filter(w => 
+                document.querySelector(`.word-card[data-audio-file="${w.audioFile}"]`).classList.contains('has-audio')
+            );
+
+            for (const word of hasAudioWords) {
+                const card = document.querySelector(`.word-card[data-audio-file="${word.audioFile}"]`);
+                playAudio(word.audioFile, card);
+                await new Promise(resolve => {
+                    audioPlayer.onended = resolve;
+                });
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+
+            alert('Finished testing all audio files!');
+        }
+
+        // Play all words in a category
+        async function playCategory(category) {
+            const categoryWords = wordsData.filter(w => w.category === category);
+            
+            for (const word of categoryWords) {
+                const card = document.querySelector(`.word-card[data-audio-file="${word.audioFile}"]`);
+                if (card.classList.contains('has-audio')) {
+                    playAudio(word.audioFile, card);
+                    await new Promise(resolve => {
+                        audioPlayer.onended = resolve;
+                    });
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+            }
+        }
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>

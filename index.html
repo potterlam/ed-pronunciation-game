@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Tense -ED Pronunciation Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Main container -->
+    <div id="app">
+        
+        <!-- Intro Screen -->
+        <div id="intro-screen" class="screen active">
+            <div class="intro-content">
+                <h1>🎮 Past Tense -ED Adventure</h1>
+                <p class="subtitle">Learn how to pronounce -ed endings!</p>
+                
+                <!-- Video container for intro video -->
+                <div id="intro-video-container" class="video-container">
+                    <video id="intro-video" controls>
+                        <source src="assets/video/intro.mp4" type="video/mp4">
+                        Your browser does not support video playback.
+                    </video>
+                </div>
+                
+                <div class="pronunciation-rules">
+                    <h2>Three Pronunciation Rules:</h2>
+                    <div class="rule-cards">
+                        <div class="rule-card rule-t">
+                            <h3>/t/</h3>
+                            <p>After voiceless sounds</p>
+                            <p class="example">walked, helped, watched</p>
+                        </div>
+                        <div class="rule-card rule-d">
+                            <h3>/d/</h3>
+                            <p>After voiced sounds</p>
+                            <p class="example">played, cleaned, lived</p>
+                        </div>
+                        <div class="rule-card rule-id">
+                            <h3>/ɪd/</h3>
+                            <p>After t or d sounds</p>
+                            <p class="example">wanted, needed, visited</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="start-game-btn" class="btn btn-primary btn-large">Start Adventure!</button>
+            </div>
+        </div>
+
+        <!-- Game Navigation Screen -->
+        <div id="game-nav-screen" class="screen">
+            <div class="game-nav-content">
+                <h1>Choose Your Challenge</h1>
+                <div class="score-display">
+                    <span>Total Score: <span id="total-score">0</span></span>
+                </div>
+                
+                <div class="game-selection-grid">
+                    <div class="game-card" data-game="1">
+                        <div class="game-number">1</div>
+                        <h3>🧩 Sorting Puzzle</h3>
+                        <p>Drag words into the correct pronunciation category</p>
+                        <button class="btn btn-secondary">Play Game 1</button>
+                    </div>
+                    
+                    <div class="game-card" data-game="2">
+                        <div class="game-number">2</div>
+                        <h3>⚡ Falling Words</h3>
+                        <p>Quick! Choose the right pronunciation!</p>
+                        <button class="btn btn-secondary">Play Game 2</button>
+                    </div>
+                    
+                    <div class="game-card" data-game="3">
+                        <div class="game-number">3</div>
+                        <h3>✅ Multiple Choice</h3>
+                        <p>Listen and select the correct answer</p>
+                        <button class="btn btn-secondary">Play Game 3</button>
+                    </div>
+                    
+                    <div class="game-card" data-game="4">
+                        <div class="game-number">4</div>
+                        <h3>👑 Boss Fight</h3>
+                        <p>Find all words in the target category!</p>
+                        <button class="btn btn-secondary">Play Game 4</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game 1: Sorting Puzzle -->
+        <div id="game1-screen" class="screen game-screen">
+            <div class="game-header">
+                <button class="btn btn-back">← Back</button>
+                <h2>Game 1: Sorting Puzzle</h2>
+                <div class="game-score">Score: <span id="game1-score">0</span></div>
+            </div>
+            
+            <div class="game-content">
+                <div class="instructions">
+                    <p>Drag each word into the correct pronunciation category!</p>
+                </div>
+                
+                <div id="word-pool" class="word-pool">
+                    <!-- Words will be dynamically inserted here -->
+                </div>
+                
+                <div class="drop-zones">
+                    <div class="drop-zone" data-category="t">
+                        <h3>/t/</h3>
+                        <p class="hint">p, k, f, s, sh, ch</p>
+                        <div class="drop-area" data-category="t"></div>
+                    </div>
+                    
+                    <div class="drop-zone" data-category="d">
+                        <h3>/d/</h3>
+                        <p class="hint">b, g, v, z, l, m, n, r, vowels</p>
+                        <div class="drop-area" data-category="d"></div>
+                    </div>
+                    
+                    <div class="drop-zone" data-category="id">
+                        <h3>/ɪd/</h3>
+                        <p class="hint">t, d</p>
+                        <div class="drop-area" data-category="id"></div>
+                    </div>
+                </div>
+                
+                <div class="feedback-message" id="game1-feedback"></div>
+                <button id="game1-next" class="btn btn-primary" style="display: none;">Next Round</button>
+            </div>
+        </div>
+
+        <!-- Game 2: Falling Words -->
+        <div id="game2-screen" class="screen game-screen">
+            <div class="game-header">
+                <button class="btn btn-back">← Back</button>
+                <h2>Game 2: Falling Words</h2>
+                <div class="game-score">Score: <span id="game2-score">0</span></div>
+            </div>
+            
+            <div class="game-content">
+                <div class="instructions">
+                    <p>Click the correct pronunciation before time runs out!</p>
+                </div>
+                
+                <div id="falling-word-display" class="falling-word-display">
+                    <div class="word-display-card">
+                        <h2 id="current-word"></h2>
+                        <button class="audio-btn" id="game2-audio">🔊</button>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="time-bar" class="time-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="answer-buttons">
+                    <button class="answer-btn" data-answer="t">/t/</button>
+                    <button class="answer-btn" data-answer="d">/d/</button>
+                    <button class="answer-btn" data-answer="id">/ɪd/</button>
+                </div>
+                
+                <div class="game-stats">
+                    <span>Correct: <span id="game2-correct">0</span></span>
+                    <span>Wrong: <span id="game2-wrong">0</span></span>
+                </div>
+                
+                <div class="feedback-message" id="game2-feedback"></div>
+            </div>
+        </div>
+
+        <!-- Game 3: Multiple Choice -->
+        <div id="game3-screen" class="screen game-screen">
+            <div class="game-header">
+                <button class="btn btn-back">← Back</button>
+                <h2>Game 3: Multiple Choice</h2>
+                <div class="game-score">Score: <span id="game3-score">0</span></div>
+            </div>
+            
+            <div class="game-content">
+                <div class="instructions">
+                    <p>Listen to the word and choose the correct pronunciation!</p>
+                </div>
+                
+                <div class="question-card">
+                    <h2 id="question-word"></h2>
+                    <p id="question-sentence" class="sentence"></p>
+                    <button class="audio-btn btn-large" id="game3-audio">🔊 Play Audio</button>
+                </div>
+                
+                <div class="choice-buttons">
+                    <button class="choice-btn" data-choice="t">
+                        <span class="choice-label">/t/</span>
+                        <span class="choice-hint">voiceless sounds</span>
+                    </button>
+                    <button class="choice-btn" data-choice="d">
+                        <span class="choice-label">/d/</span>
+                        <span class="choice-hint">voiced sounds</span>
+                    </button>
+                    <button class="choice-btn" data-choice="id">
+                        <span class="choice-label">/ɪd/</span>
+                        <span class="choice-hint">after t or d</span>
+                    </button>
+                </div>
+                
+                <div class="progress-indicator">
+                    Question <span id="question-number">1</span> of <span id="total-questions">10</span>
+                </div>
+                
+                <div class="feedback-message" id="game3-feedback"></div>
+                <button id="game3-next" class="btn btn-primary" style="display: none;">Next Question</button>
+            </div>
+        </div>
+
+        <!-- Game 4: Boss Fight -->
+        <div id="game4-screen" class="screen game-screen">
+            <div class="game-header">
+                <button class="btn btn-back">← Back</button>
+                <h2>Game 4: Boss Fight</h2>
+                <div class="game-score">Score: <span id="game4-score">0</span></div>
+            </div>
+            
+            <div class="game-content">
+                <div class="boss-instructions">
+                    <p>Find all words with <strong id="target-category-display"></strong> pronunciation!</p>
+                    <div class="timer-display">
+                        Time: <span id="boss-timer">30</span>s
+                    </div>
+                    <div class="difficulty-toggle">
+                        <label>
+                            <input type="checkbox" id="color-hints-toggle" checked>
+                            Show color hints
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="boss-word-grid" class="boss-word-grid">
+                    <!-- Words will be dynamically inserted here -->
+                </div>
+                
+                <div class="boss-stats">
+                    <span>Found: <span id="boss-found">0</span> / <span id="boss-total">0</span></span>
+                </div>
+                
+                <div class="feedback-message" id="game4-feedback"></div>
+                <button id="game4-restart" class="btn btn-primary" style="display: none;">Next Round</button>
+            </div>
+        </div>
+
+        <!-- Ending Screen -->
+        <div id="ending-screen" class="screen">
+            <div class="ending-content">
+                <h1>🎉 Congratulations!</h1>
+                <p class="subtitle">You completed the adventure!</p>
+                
+                <!-- Video container for ending video -->
+                <div id="ending-video-container" class="video-container">
+                    <video id="ending-video" controls>
+                        <source src="assets/video/ending.mp4" type="video/mp4">
+                        Your browser does not support video playback.
+                    </video>
+                </div>
+                
+                <div class="final-score-card">
+                    <h2>Your Final Score</h2>
+                    <div class="score-number" id="final-score">0</div>
+                    <p>Great job learning -ed pronunciation!</p>
+                </div>
+                
+                <div class="ending-buttons">
+                    <button id="play-again-btn" class="btn btn-primary btn-large">Play Again</button>
+                    <button id="view-results-btn" class="btn btn-secondary">View Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio element for playing word pronunciations -->
+    <audio id="word-audio" style="display: none;"></audio>
+
+    <!-- Load JavaScript files -->
+    <script src="js/main.js"></script>
+    <script src="js/game1.js"></script>
+    <script src="js/game2.js"></script>
+    <script src="js/game3.js"></script>
+    <script src="js/game4.js"></script>
+</body>
+</html>
